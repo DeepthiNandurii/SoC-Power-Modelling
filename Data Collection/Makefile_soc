@@ -1,0 +1,17 @@
+# File			: 	Makefile_soc
+# Authors		: 	Deepthi Nanduri/Jose Nunez-Yanez
+# Affiliation	: 	Department of Electrical and Electronic Engineering, University of Bristol
+# Description	:	Makefile used to launch benchmark run for data collection 
+# Used for 		: 	Quad-Core ARM Cortex A57 CPU & NVIDIA Maxwell GPU present on Jetson TX1 board
+# Usage			: 	make -f Makefile_soc <target>, where target can be soc_pow or clean
+
+soc_pow:
+	nvcc -x c++ -o pmon_soc -O3 soc_pow_mon.c utilities.c jtx1pow.c jtx1rate.c measure_cpu_pow.c measurement_threads.c monitoring.c -lcusparse
+
+clean: 
+	rm pmon_soc
+	
+	
+	
+	
+
